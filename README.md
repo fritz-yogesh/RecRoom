@@ -6,13 +6,17 @@ RecRoom is a small, self-hosted hangout: create a space, invite people with its 
 
 Requires Python 3.9 or newer. The server and SQLite database use only Python's standard library.
 
+On Linux/macOS, launch the full app and open its index page in your browser with:
+
 ```sh
-python3 server.py
+./run_recroom.sh
 ```
+
+Alternatively, run `python3 launch_recroom.py`. To start only the server without opening a browser, use `python3 server.py`.
 
 Open <http://127.0.0.1:8000>. Set `RECROOM_HOST` and `RECROOM_PORT` to change the bind address and port. SQLite data and uploaded files are stored in `data/`.
 
-Do not open `docs/index.html` directly for the full app. A `file://` page cannot connect to the Python/SQLite backend; it displays a launch notice and disables space actions. Run `python3 server.py` from the project folder, then open the local URL above.
+The launcher starts the Python/SQLite backend and serves `docs/index.html` at the local URL above. Do not open `docs/index.html` directly for the full app: a `file://` page cannot connect to the backend.
 
 ## Spaces and sharing
 

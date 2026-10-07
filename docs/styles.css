@@ -81,6 +81,7 @@ h1, h2, h3, p { margin-top: 0; }
 .card-copy h3 { margin: 1px 0 4px; font: 700 15px Manrope, sans-serif; letter-spacing: -.3px; }.card-copy p { margin: 0 0 18px; color: #898c84; font-size: 10px; }
 .field-label { grid-column: 1 / -1; margin: 0 0 6px; color: #686e65; font-size: 10px; font-weight: 600; }
 .entry-card input { grid-column: 1 / -1; width: 100%; height: 39px; margin-bottom: 12px; padding: 0 11px; outline: 0; border: 1px solid #e6e7e1; border-radius: 7px; background: #fff; color: var(--ink); font-size: 12px; transition: border-color .15s, box-shadow .15s; }
+.entry-card input:disabled, .entry-card button:disabled { cursor: not-allowed; opacity: .65; }
 .entry-card input:focus, #message-input:focus { border-color: #809879; box-shadow: 0 0 0 3px #7992731c; }
 .entry-card input::placeholder { color: #b6b8b1; }.entry-card .code-label { margin-top: -1px; }.entry-card .code-input { margin-bottom: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
 .button { display: flex; height: 40px; align-items: center; justify-content: space-between; padding: 0 13px; border: 0; border-radius: 7px; font-size: 11px; font-weight: 700; transition: transform .15s, background .15s; }.button:hover { transform: translateY(-1px); }.button-dark { background: #3e6048; color: white; }.button-dark:hover { background: #334f3b; }.button-light { border: 1px solid #e7e7df; background: #faf9f5; color: #42483f; }.button-light:hover { background: #f2f1eb; }

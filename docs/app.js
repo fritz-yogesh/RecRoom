@@ -36,8 +36,6 @@ themeToggle.addEventListener("click", () => {
 const openedFromFile = location.protocol === "file:";
 if (openedFromFile) {
   fileModeNotice.classList.remove("hidden");
-  document.querySelectorAll("#create-form input, #create-form button, #join-form input, #join-form button, #message-form input, #message-form button")
-    .forEach((control) => { control.disabled = true; });
 }
 
 function showError(id, message) {
@@ -289,6 +287,10 @@ async function leaveRoom() {
 createForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   showError("#create-error", "");
+  if (openedFromFile) {
+    showError("#create-error", "Your details are ready. Start python3 server.py and open http://127.0.0.1:8000 to create the space.");
+    return;
+  }
   const button = createForm.querySelector("button[type=submit]");
   button.disabled = true;
   try {
@@ -303,6 +305,10 @@ createForm.addEventListener("submit", async (event) => {
 joinForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   showError("#join-error", "");
+  if (openedFromFile) {
+    showError("#join-error", "Your details are ready. Start python3 server.py and open http://127.0.0.1:8000 to join the space.");
+    return;
+  }
   const button = joinForm.querySelector("button[type=submit]");
   button.disabled = true;
   try {
