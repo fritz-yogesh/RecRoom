@@ -12,6 +12,8 @@ python3 server.py
 
 Open <http://127.0.0.1:8000>. Set `RECROOM_HOST` and `RECROOM_PORT` to change the bind address and port. SQLite data and uploaded files are stored in `data/`.
 
+Do not open `docs/index.html` directly for the full app. A `file://` page cannot connect to the Python/SQLite backend; it displays a launch notice and disables space actions. Run `python3 server.py` from the project folder, then open the local URL above.
+
 ## Spaces and sharing
 
 - A space host can copy an invite link or share the six-character space code.

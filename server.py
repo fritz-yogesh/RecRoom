@@ -131,6 +131,8 @@ class RecRoomHandler(BaseHTTPRequestHandler):
                 self.serve_static("index.html")
             elif parsed.path.startswith("/static/"):
                 self.serve_static(unquote(parsed.path.removeprefix("/static/")))
+            elif parsed.path in {"/styles.css", "/app.js"}:
+                self.serve_static(parsed.path.removeprefix("/"))
             else:
                 self.send_json(404, {"error": "Not found."})
         except ApiError as error:

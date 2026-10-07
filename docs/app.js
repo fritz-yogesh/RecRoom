@@ -9,6 +9,7 @@ const messageInput = document.querySelector("#message-input");
 const fileInput = document.querySelector("#file-input");
 const toast = document.querySelector("#toast");
 const themeToggle = document.querySelector("#theme-toggle");
+const fileModeNotice = document.querySelector("#file-mode-notice");
 
 let roomSession = null;
 let lastMessageId = 0;
@@ -31,6 +32,13 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("recroom-theme", nextTheme);
   applyTheme(nextTheme);
 });
+
+const openedFromFile = location.protocol === "file:";
+if (openedFromFile) {
+  fileModeNotice.classList.remove("hidden");
+  document.querySelectorAll("#create-form input, #create-form button, #join-form input, #join-form button, #message-form input, #message-form button")
+    .forEach((control) => { control.disabled = true; });
+}
 
 function showError(id, message) {
   document.querySelector(id).textContent = message;
@@ -338,13 +346,13 @@ document.querySelector("#end-room-button").addEventListener("click", async () =>
 
 const inviteParams = new URLSearchParams(location.search);
 const invitedCode = inviteParams.get("space") || inviteParams.get("room");
-if (invitedCode) {
+if (invitedCode && !openedFromFile) {
   codeInput.value = invitedCode.toUpperCase().replace(/[^A-Z2-9]/g, "").slice(0, 6);
   document.querySelector("#guest-name").focus();
 }
 try {
   const savedSession = JSON.parse(sessionStorage.getItem("recroom-session"));
-  if (savedSession?.code && savedSession?.token) openRoom(savedSession);
+  if (!openedFromFile && savedSession?.code && savedSession?.token) openRoom(savedSession);
 } catch {
   sessionStorage.removeItem("recroom-session");
 }
