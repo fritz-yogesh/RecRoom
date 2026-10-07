@@ -16,8 +16,8 @@ Open <http://127.0.0.1:8000>. Set `RECROOM_HOST` and `RECROOM_PORT` to change th
 
 - A space host can copy an invite link or share the six-character space code.
 - Visitors choose a display name and join with that code. Existing `?room=CODE` invite links continue to work.
-- Messages, room membership, and uploaded-file metadata are stored in SQLite; uploaded media is stored under `data/uploads/`.
+- Messages, space membership, and uploaded-file metadata are stored in SQLite; uploaded media is stored under `data/uploads/`.
 - The host can end the space, which removes its messages, members, and uploaded media.
 - Photos, videos, and audio are supported up to 12 MB per file.
 
-This is a lightweight starter app intended for trusted, small groups. Put it behind HTTPS and an appropriate production web server before exposing it to the public internet; room codes are invitations, not a substitute for account-based access control or abuse protection.
+This is a lightweight starter app intended for trusted, small groups. Put it behind HTTPS and an appropriate production web server before exposing it to the public internet; space codes are invitations, not a substitute for account-based access control or abuse protection.

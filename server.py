@@ -190,7 +190,7 @@ class RecRoomHandler(BaseHTTPRequestHandler):
         payload = self.read_json()
         code = str(payload.get("code", "")).strip().upper()
         if not re.fullmatch(r"[A-Z2-9]{6}", code):
-            raise ApiError(400, "Enter a valid 6-character room code.")
+            raise ApiError(400, "Enter a valid 6-character space code.")
         name = safe_name(str(payload.get("name", "")))
         member_token = secrets.token_urlsafe(32)
         with connect_db() as connection:

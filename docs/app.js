@@ -220,7 +220,7 @@ async function copyText(text, success) {
     await navigator.clipboard.writeText(text);
     showToast(success);
   } catch {
-    showToast("Couldn't copy automatically — select and copy the room code.");
+    showToast("Couldn't copy automatically — select and copy the space code.");
   }
 }
 
