@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f7f4">
+    <meta name="description" content="A little space for your people. Make a RecRoom and share the moment.">
+    <title>RecRoom — make a little space</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="RecRoom home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>recroom<span class="brand-period">.</span></span>
+        </a>
+        <div class="top-actions">
+          <div class="top-note"><span class="live-dot"></span> good things happen together</div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="home-view">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="sparkle">✳</span> YOUR PEOPLE, YOUR PLACE</div>
+            <h1>Make a little<br>space for <span>together.</span></h1>
+            <p class="hero-description">A cozy corner of the internet for your favorite people. Drop in, catch up, and share the stuff you love.</p>
+            <div class="social-proof">
+              <div class="avatar-stack" aria-hidden="true"><span>J</span><span>M</span><span>A</span><span>+</span></div>
+              <span>Better when we're <strong>all here.</strong></span>
+            </div>
+          </div>
+
+          <div class="room-art" aria-label="Illustration of friends hanging out together">
+            <div class="art-sun"></div>
+            <div class="art-star star-one">✳</div><div class="art-star star-two">✦</div>
+            <div class="art-note note-one"><span>♫</span> good vibes only</div>
+            <div class="art-note note-two">you had to be there <span>↗</span></div>
+            <div class="plant plant-left"><i></i><i></i><i></i><b></b></div>
+            <div class="sofa"><div class="sofa-back"></div><div class="sofa-seat"></div><div class="sofa-arm left"></div><div class="sofa-arm right"></div><div class="sofa-leg l"></div><div class="sofa-leg r"></div></div>
+            <div class="person person-left"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="leg one"></div><div class="leg two"></div></div>
+            <div class="person person-mid"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="leg one"></div><div class="leg two"></div></div>
+            <div class="person person-right"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="leg one"></div><div class="leg two"></div></div>
+            <div class="coffee-table"><span></span></div>
+            <div class="rug"></div>
+            <div class="plant plant-right"><i></i><i></i><i></i><b></b></div>
+          </div>
+        </section>
+
+        <section class="entry-area" aria-labelledby="entry-title">
+          <div class="entry-heading">
+            <span class="step-label">FIRST, THE FUN PART</span>
+            <h2 id="entry-title">Where are we meeting?</h2>
+            <p>Start a space or pop into one that's already going.</p>
+          </div>
+          <div class="entry-cards">
+            <form class="entry-card create-card" id="create-form">
+              <div class="card-icon create-icon" aria-hidden="true"><span>✳</span></div>
+              <div class="card-copy"><h3>Make a space</h3><p>Be the one who brings everyone together.</p></div>
+              <label class="field-label" for="host-name">Your name</label>
+              <input id="host-name" name="name" type="text" maxlength="32" placeholder="e.g. Jamie" autocomplete="nickname" required>
+              <button class="button button-dark" type="submit">Create a space <span aria-hidden="true">↗</span></button>
+              <div class="form-message" id="create-error" role="alert"></div>
+            </form>
+            <form class="entry-card join-card" id="join-form">
+              <div class="card-icon join-icon" aria-hidden="true"><span>↘</span></div>
+              <div class="card-copy"><h3>Join your people</h3><p>Got an invite? You know what to do.</p></div>
+              <label class="field-label" for="guest-name">Your name</label>
+              <input id="guest-name" name="name" type="text" maxlength="32" placeholder="e.g. Alex" autocomplete="nickname" required>
+              <label class="field-label code-label" for="room-code">Space code</label>
+              <input id="room-code" class="code-input" name="code" type="text" maxlength="6" placeholder="ABC123" autocomplete="off" required>
+              <button class="button button-light" type="submit">Join the space <span aria-hidden="true">→</span></button>
+              <div class="form-message" id="join-error" role="alert"></div>
+            </form>
+          </div>
+        </section>
+        <footer class="home-footer"><span>Made for the group chat that deserves its own place.</span><span>✳ &nbsp; friends welcome</span></footer>
+      </main>
+
+      <main id="room-view" class="room-view hidden">
+        <section class="room-layout">
+          <div class="room-main">
+            <div class="room-topline">
+              <button class="back-button" id="leave-button" type="button"><span>←</span> Leave space</button>
+              <div class="room-top-actions"><span class="room-live"><i></i> SPACE IS OPEN</span><button class="icon-button" id="share-button" type="button" aria-label="Copy space invite">↗</button></div>
+            </div>
+            <div class="room-title-row">
+              <div><div class="room-label"><span class="sparkle">✳</span> YOUR HANGOUT</div><h1>Space <span id="room-title-code"></span></h1></div>
+              <div class="room-code-pill"><span>SPACE CODE</span><strong id="room-code-display"></strong><button id="copy-code-button" type="button" aria-label="Copy space code">▢</button></div>
+            </div>
+            <div class="room-welcome"><span class="welcome-icon">☀</span><span><strong>You're in.</strong> Make yourself at home.</span></div>
+            <section class="chat-panel" aria-label="Space chat">
+              <div class="chat-header"><div><span class="chat-heading">The conversation</span><span class="chat-subtitle">say hey, share a thing, stay a while</span></div><span class="member-count" id="member-count">1 here</span></div>
+              <div class="message-list" id="message-list" aria-live="polite" aria-relevant="additions"></div>
+              <form class="composer" id="message-form">
+                <button class="attach-button" id="attach-button" type="button" aria-label="Share a photo, video, or audio file">＋</button>
+                <input id="message-input" type="text" maxlength="2000" placeholder="Say something nice..." autocomplete="off" aria-label="Write a message">
+                <input id="file-input" type="file" accept="image/*,video/*,audio/*" hidden>
+                <button class="send-button" type="submit" aria-label="Send message">↑</button>
+              </form>
+              <div class="composer-hint">A little kindness goes a long way <span>♡</span></div>
+            </section>
+          </div>
+          <aside class="room-sidebar">
+            <div class="side-card people-card"><div class="side-heading"><span>THE PEOPLE</span><span class="online-label"><i></i> HERE NOW</span></div><div id="people-list" class="people-list"></div></div>
+            <div class="side-card share-card"><div class="share-decoration">✳</div><div class="side-heading">GET THE CREW IN HERE</div><h3>Good times<br>are better shared.</h3><p>Send the code to your people and meet them right here.</p><button class="button button-dark invite-button" id="invite-button" type="button">Copy invite link <span>↗</span></button></div>
+            <div class="side-card room-note"><div class="note-icon">♫</div><div><strong>Keep the good stuff coming.</strong><p>Share a photo, video, or voice note with the + button.</p></div></div>
+            <button class="end-room-button hidden" id="end-room-button" type="button">End space for everyone</button>
+          </aside>
+        </section>
+      </main>
+      <div id="toast" class="toast" role="status"></div>
+    </div>
+  </body>
+</html>
